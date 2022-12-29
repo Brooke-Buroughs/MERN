@@ -7,6 +7,19 @@
   pointer-events: none;
 }
 
+.formatName {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: palevioletred;
+  background-color: mistyrose;
+  text-align: center;
+  font-weight: bolder;
+  font-family: cursive;
+  font-size: 30px;
+
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
