@@ -4,10 +4,9 @@ import axios from 'axios';
 const PokeName = (props) => {
     const [pokemon, setPokemon] = useState([]);
     useEffect(()=>{
-        // axios.get('https://pokeapi.co/api/v2/pokemon?limit=1154')
-        //     .then(response => response.json())
-        //     .then(response=>{setPokemon(response.results)})
-        //     .catch(err => console.log(err))
+        axios.get('https://pokeapi.co/api/v2/pokemon?limit=1154')
+            .then(response=>{setPokemon(response.data.results)})
+            .catch(err => console.log(err))
     }, []);
 
     return(
@@ -19,22 +18,6 @@ const PokeName = (props) => {
     )
 }
 
-// const PokeName = (props) => {
-//     const [pokemon, setPokemon] = useState([]);
-
-//     useEffect(() => {
-//         fetch('https://pokeapi.co/api/v2/pokemon?limit=1154')
-//             .then(response => response.json())
-//             .then(response => setPokemon(response.results))
-//             .catch(err => console.log(err))
-//         }, []);
-
-//     return (
-//         <div>
-//             {pokemon.length > 0 && pokemon.map((pokemon, index) => {
-//                 return (<div key={index}> {pokemon.name} </div>)
-//             })}
-//         </div>
-//     );
-// }
+//know where data is going and what it looks like, ie an array in this case, but we can break this down further
+//for axios always  response.data. whatever array you are looking for
 export default PokeName;
