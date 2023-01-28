@@ -14,6 +14,30 @@ const createProduct = () => {
     return newFake;
 };
 
+const createUser = () => {
+    const newUser = {
+        password: faker.internet.password(),
+        email: faker.internet.email(),
+        phoneNumber: faker.phone.number(),
+        lastName: faker.name.lastName(),
+        firstName: faker.name.firstName(),
+        _id: faker.datatype.uuid()
+    }
+}
+
+const createCompany = () => {
+    const newCompany = {
+        _id: faker.datatype.uuid(),
+        companyName: faker.company.companyName()
+    }
+        const address= {
+            street: faker.address.street(),
+            city: faker.address.city(),
+            state: faker.address.state(),
+            zipCode: faker.address.zipCode(),
+            country:
+        }
+}
 
 app.get("/api-tester", (req, res) => {
         res.json(createProduct())
