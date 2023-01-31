@@ -29,7 +29,7 @@ const createUser = () => {
 const createCompany = () => {
     const newCompany = {
         _id: faker.datatype.uuid(),
-        companyName: faker.company.companyName(),
+        companyName: faker.company.name(),
         address: {
             street: faker.address.street(),
             city: faker.address.city(),
@@ -41,9 +41,12 @@ const createCompany = () => {
     return newCompany;
 }
 
-const createPair = () => {
-    //is this to create a random pair? or is this to create a pair from existing data? 
-}
+// const createPair = () => {
+//     //is this to create a random pair? or is this to create a pair from existing data? 
+//     const newPair = {
+
+//     }
+// }
 
 // app.get("/api-tester", (req, res) => {
 //     res.json(createProduct())
@@ -55,6 +58,10 @@ app.get("/api/users/new", (req, res) => {
 
 app.get("/api/companies/new", (req, res) => {
     res.json(createCompany());
+});
+
+app.get("/api/company/user", (req,res) => {
+    res.json((createUser())+(createCompany()))
 });
 
 // this needs to be below the other code blocks
