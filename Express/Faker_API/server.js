@@ -5,14 +5,14 @@ const port = 8000;
     
 // req is shorthand for request
 // res is shorthand for response
-const createProduct = () => {
-    const newFake = {
-        name: faker.commerce.productName(),
-        price: "$" + faker.commerce.price(),
-        department: faker.commerce.department()
-    };
-    return newFake;
-};
+// const createProduct = () => {
+//     const newFake = {
+//         name: faker.commerce.productName(),
+//         price: "$" + faker.commerce.price(),
+//         department: faker.commerce.department()
+//     };
+//     return newFake;
+// };
 
 const createUser = () => {
     const newUser = {
@@ -22,31 +22,40 @@ const createUser = () => {
         lastName: faker.name.lastName(),
         firstName: faker.name.firstName(),
         _id: faker.datatype.uuid()
-    }
+    };
+    return newUser;
 }
 
 const createCompany = () => {
     const newCompany = {
         _id: faker.datatype.uuid(),
-        companyName: faker.company.companyName()
-    }
-        const address= {
+        companyName: faker.company.companyName(),
+        address: {
             street: faker.address.street(),
             city: faker.address.city(),
             state: faker.address.state(),
             zipCode: faker.address.zipCode(),
-            country:
+            country: faker.address.country()
         }
+    };
+    return newCompany;
 }
 
-app.get("/api-tester", (req, res) => {
-        res.json(createProduct())
-})
+const createPair = () => {
+    //is this to create a random pair? or is this to create a pair from existing data? 
+}
 
-app.get("/api", (req, res) => {
-    res.json({ message: "Hello World" });
+// app.get("/api-tester", (req, res) => {
+//     res.json(createProduct())
+// })
+
+app.get("/api/users/new", (req, res) => {
+    res.json(createUser());
 });
 
+app.get("/api/companies/new", (req, res) => {
+    res.json(createCompany());
+});
 
 // this needs to be below the other code blocks
 app.listen( port, () => console.log(`Listening on port: ${port}`) );
